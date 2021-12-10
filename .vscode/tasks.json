@@ -1,0 +1,10 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"command": "tsc ${file} --lib esnext,dom --outDir ${workspaceFolder}/dist --sourceMap --downlevelIteration",
+			"label": "tsc - debug"
+		}
+	]
+}
