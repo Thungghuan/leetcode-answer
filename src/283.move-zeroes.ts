@@ -10,35 +10,48 @@ export {}
  Do not return anything, modify nums in-place instead.
  */
 function moveZeroes(nums: number[]): void {
-  for (let i = 0; i < nums.length; ++i) {
-    if (nums[i] === 0) {
-      let start = i + 1
+  let zeroCount = 0
+  let idx = 0
 
-      while (start < nums.length && nums[start] !== 0) {
-        start++
-      }
-      let temp = nums[i]
-      nums[i] = nums[start]
-      nums[start] = temp
+  while (idx < nums.length) {
+    if (nums[idx] == 0) {
+      zeroCount++
+      nums.splice(idx, 1)
+    } else {
+      idx++
     }
   }
+
+  nums.push(...Array.from({ length: zeroCount }, () => 0))
 }
 // @lc code=end
 
 if (import.meta.vitest) {
   const { it, expect } = import.meta.vitest
 
-  it('move-zeroes', () => {
+  it('array-splice', () => {
     const array = [0, 1, 0, 3, 12]
 
-    expect(array).toMatchInlineSnapshot(`
-      [
-        0,
-        1,
-        0,
-        3,
-        12,
-      ]
-    `)
+    array.splice(1, 1)
+
+    expect(array).toEqual([0, 0, 3, 12])
+  })
+
+  it('array-from', () => {
+    const length = 3
+
+    expect(Array.from({ length }, () => 0)).toEqual([0, 0, 0])
+  })
+
+  it('move-zeroes', () => {
+    const array1 = [0, 1, 0, 3, 12]
+    moveZeroes(array1)
+
+    expect(array1).toEqual([1, 3, 12, 0, 0])
+
+    const array2 = [0]
+    moveZeroes(array2)
+
+    expect(array2).toEqual([0])
   })
 }

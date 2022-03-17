@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/Thungghuan/leetcode-answer#readme",
   "scripts": {
-    "test": "vitest"
+    "test": "vitest -u"
   },
   "devDependencies": {
     "vite": "^2.8.6",
