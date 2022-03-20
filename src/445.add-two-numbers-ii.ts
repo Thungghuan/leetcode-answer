@@ -43,9 +43,8 @@ function addTwoNumbers(
     l2 = l2.next
   }
 
-  const resultStack: number[] = []
+  let result = new ListNode()
   let carry = 0
-
   while (l1Stack.length > 0 || l2Stack.length > 0 || carry === 1) {
     const sum = (l1Stack.pop() || 0) + (l2Stack.pop() || 0) + carry
     if (sum > 9) {
@@ -54,15 +53,30 @@ function addTwoNumbers(
       carry = 0
     }
 
-    resultStack.push(sum % 10)
+    result.next = new ListNode(sum % 10, result.next)
   }
 
-  const result = new ListNode()
-  let current = result
-  while (resultStack.length > 0) {
-    current.next = new ListNode(resultStack.pop())
-    current = current.next
-  }
+  // Not a good solution
+  // const resultStack: number[] = []
+  // let carry = 0
+
+  // while (l1Stack.length > 0 || l2Stack.length > 0 || carry === 1) {
+  //   const sum = (l1Stack.pop() || 0) + (l2Stack.pop() || 0) + carry
+  //   if (sum > 9) {
+  //     carry = 1
+  //   } else {
+  //     carry = 0
+  //   }
+
+  //   resultStack.push(sum % 10)
+  // }
+
+  // const result = new ListNode()
+  // let current = result
+  // while (resultStack.length > 0) {
+  //   current.next = new ListNode(resultStack.pop())
+  //   current = current.next
+  // }
 
   return result.next
 }
