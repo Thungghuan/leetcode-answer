@@ -3,17 +3,7 @@
  *
  * [83] Remove Duplicates from Sorted List
  */
-
-export {}
-
-class ListNode {
-  val: number
-  next: ListNode | null
-  constructor(val?: number, next?: ListNode | null) {
-    this.val = val === undefined ? 0 : val
-    this.next = next === undefined ? null : next
-  }
-}
+import { ListNode, createLinkList } from './types'
 
 // @lc code=start
 /**
@@ -43,16 +33,6 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
 }
 // @lc code=end
 
-function createLinkList(values: number[]): ListNode | null {
-  const result = new ListNode()
-
-  while (values.length > 0) {
-    result.next = new ListNode(values.pop(), result.next)
-  }
-
-  return result.next
-}
-
 if (import.meta.vitest) {
   const { expect, it } = import.meta.vitest
 
@@ -67,7 +47,8 @@ if (import.meta.vitest) {
       }
     `)
 
-    expect(deleteDuplicates(createLinkList([1, 1, 2, 3, 3]))).toMatchInlineSnapshot(`
+    expect(deleteDuplicates(createLinkList([1, 1, 2, 3, 3])))
+      .toMatchInlineSnapshot(`
       ListNode {
         "next": ListNode {
           "next": ListNode {

@@ -4,14 +4,7 @@
  * [2] Add Two Numbers
  */
 
-class ListNode {
-  val: number
-  next: ListNode | null
-  constructor(val?: number, next?: ListNode | null) {
-    this.val = val === undefined ? 0 : val
-    this.next = next === undefined ? null : next
-  }
-}
+import { ListNode, createLinkList } from './types'
 
 // @lc code=start
 /**
@@ -100,14 +93,6 @@ function addTwoNumbers(
   return result.next
 }
 // @lc code=end
-
-function createLinkList(values: number[]): ListNode | null {
-  if (values.length === 0) {
-    return null
-  } else {
-    return new ListNode(values.splice(0, 1)[0], createLinkList(values))
-  }
-}
 
 if (import.meta.vitest) {
   const { expect, it } = import.meta.vitest
