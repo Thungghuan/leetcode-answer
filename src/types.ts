@@ -26,3 +26,34 @@ export function getLinkListValue(node: ListNode | null): number[] {
 
   return values
 }
+
+export class TreeNode {
+  val: number
+  left: TreeNode | null
+  right: TreeNode | null
+  constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+    this.val = val === undefined ? 0 : val
+    this.left = left === undefined ? null : left
+    this.right = right === undefined ? null : right
+  }
+}
+
+export function createTree(nodes: (number | null)[]): TreeNode | null {
+  // case: `[]`
+  if (nodes.length === 0) return null
+
+  const first = nodes.shift()
+
+  // case: `[null]`
+  if (!first) return null
+
+  // case: `[number]`
+  // length become zero after `shift`
+  if (nodes.length === 0) return new TreeNode(first)
+
+  const tree = new TreeNode(first)
+  tree.left = createTree(nodes)
+  tree.right = createTree(nodes)
+
+  return tree
+}
