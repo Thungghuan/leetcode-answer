@@ -22,15 +22,32 @@ import { createTree, TreeNode } from './types'
  */
 
 function preorderTraversal(root: TreeNode | null): number[] {
-  if (!root) return []
-
+  /** Answer2: Stack */
   const result: number[] = []
-  result.push(root.val)
+  const treeNodeStack: TreeNode[] = []
 
-  result.push(...preorderTraversal(root.left))
-  result.push(...preorderTraversal(root.right))
+  root && treeNodeStack.push(root)
+
+  while (treeNodeStack.length > 0) {
+    const node = treeNodeStack.pop()
+
+    node?.val && result.push(node.val)
+    node?.right && treeNodeStack.push(node.right)
+    node?.left && treeNodeStack.push(node.left)
+  }
 
   return result
+
+  /** Answer1: Recursion */
+  // if (!root) return []
+
+  // const result: number[] = []
+  // result.push(root.val)
+
+  // result.push(...preorderTraversal(root.left))
+  // result.push(...preorderTraversal(root.right))
+
+  // return result
 }
 // @lc code=end
 
@@ -46,5 +63,7 @@ if (import.meta.vitest) {
         3,
       ]
     `)
+
+    expect(preorderTraversal(createTree([]))).toMatchInlineSnapshot('[]')
   })
 }
