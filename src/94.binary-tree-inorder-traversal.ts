@@ -22,17 +22,36 @@ import { createTree, TreeNode } from './types'
  */
 
 function inorderTraversal(root: TreeNode | null): number[] {
-  if(!root) return []
-
+  /** Answer2: Stack */
   const result: number[] = []
+  const treeNodeStack: TreeNode[] = []
+  let current: TreeNode | null = root
 
-  result.push(...inorderTraversal(root.left))
-
-  result.push(root.val)
-
-  result.push(...inorderTraversal(root.right))
+  while(current || treeNodeStack.length > 0) {
+    if (current) {
+      treeNodeStack.push(current)
+      current = current.left
+    } else {
+      current = treeNodeStack.pop()!
+      result.push(current.val)
+      current = current.right
+    }
+  }
 
   return result
+
+  /** Answer1: Recursion */
+  // if(!root) return []
+
+  // const result: number[] = []
+
+  // result.push(...inorderTraversal(root.left))
+
+  // result.push(root.val)
+
+  // result.push(...inorderTraversal(root.right))
+
+  // return result
 }
 // @lc code=end
 
