@@ -22,29 +22,47 @@ import { createTree, TreeNode } from './types'
  */
 
 function minDepth(root: TreeNode | null): number {
-  if (!root) return 0
+  /** Answer2: recursion
+   * Runtime: 454ms / 6.21%
+   * Memory: 100.9MB / 7.91%å
+   */
 
-  let depth = 0
-  const nodeQueue: TreeNode[] = [root]
-
-  while (nodeQueue.length > 0) {
-    const nextLevel: TreeNode[] = []
-
-    depth++
-
-    while (nodeQueue.length > 0) {
-      const node = nodeQueue.shift()!
-
-      if (!node.left && !node.right) return depth
-
-      node.left && nextLevel.push(node.left)
-      node.right && nextLevel.push(node.right)
-    }
-
-    nodeQueue.push(...nextLevel)
+  const dfs = (root: TreeNode | null): number => {
+    if (!root) return 0
+    if (!root.left) return 1 + dfs(root.right)
+    if (!root.right) return 1 + dfs(root.left)
+    return Math.min(dfs(root.left), dfs(root.right)) + 1
   }
 
-  return depth
+  return dfs(root)
+
+  /** Answer1: queue
+   * Runtime: 320ms / 63.28%
+   * Memory: 97.4MB / 81.92%
+   */
+  // if (!root) return 0
+
+  // let depth = 0
+  // const nodeQueue: TreeNode[] = [root]
+
+  // while (nodeQueue.length > 0) {
+  //   const nextLevel: TreeNode[] = []
+
+  //   depth++
+
+  //   while (nodeQueue.length > 0) {
+  //     const node = nodeQueue.shift()!
+
+  //     if (!node.left && !node.right) return depth
+
+  //     node.left && nextLevel.push(node.left)
+  //     node.right && nextLevel.push(node.right)
+  //   }
+
+  //   nodeQueue.push(...nextLevel)
+  // }
+
+  // return depth
 }
 // @lc code=end
 
