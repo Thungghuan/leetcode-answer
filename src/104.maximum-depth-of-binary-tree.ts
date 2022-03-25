@@ -22,26 +22,41 @@ import { createTree, TreeNode } from './types'
  */
 
 function maxDepth(root: TreeNode | null): number {
+  /** Answer2: recursion
+   * Runtime: 122ms / 31.21%
+   * Memory: 46.4MB / 70.4%
+   */
   if (!root) return 0
 
-  const nodeQueue: TreeNode[] = [root]
-  let depth = 0
+  const left = maxDepth(root.left)
+  const right = maxDepth(root.right)
 
-  while (nodeQueue.length > 0) {
-    const nextLevel: TreeNode[] = []
+  return 1 + Math.max(left, right)
 
-    while (nodeQueue.length > 0) {
-      const node = nodeQueue.shift()!
+  /** Answer1: queue
+   * Runtime: 105ms / 56.99%
+   * Memory: 47MB / 18.96%
+   */
+  // if (!root) return 0
 
-      node.left && nextLevel.push(node.left)
-      node.right && nextLevel.push(node.right)
-    }
+  // const nodeQueue: TreeNode[] = [root]
+  // let depth = 0
 
-    nodeQueue.push(...nextLevel)
-    depth++
-  }
+  // while (nodeQueue.length > 0) {
+  //   const nextLevel: TreeNode[] = []
 
-  return depth
+  //   while (nodeQueue.length > 0) {
+  //     const node = nodeQueue.shift()!
+
+  //     node.left && nextLevel.push(node.left)
+  //     node.right && nextLevel.push(node.right)
+  //   }
+
+  //   nodeQueue.push(...nextLevel)
+  //   depth++
+  // }
+
+  // return depth
 }
 // @lc code=end
 
