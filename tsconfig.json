@@ -14,7 +14,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "lib": ["esnext", "scripthost"],
     "skipLibCheck": true,
     "types": ["vitest/importMeta"]
   },
