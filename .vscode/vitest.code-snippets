@@ -13,7 +13,9 @@
 			"if (import.meta.vitest) {",
 			"  const { expect, it } = import.meta.vitest",
 			"",
-			"  it('${1:$TM_FILENAME_BASE}', () => {$2})",
+			"  it('$TM_FILENAME_BASE', () => {",
+			"    expect($1)",
+			"})",
 			"}"
 		],
 		"description": "init vitest snippet"
