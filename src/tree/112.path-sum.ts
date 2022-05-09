@@ -4,7 +4,7 @@
  * [112] Path Sum
  */
 
-import { createTree, TreeNode } from './types'
+import { createTree, TreeNode } from '../types'
 
 // @lc code=start
 /**

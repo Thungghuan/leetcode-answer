@@ -4,7 +4,7 @@
  * [144] Binary Tree Preorder Traversal
  */
 
-import { createTree, TreeNode } from './types'
+import { createTree, TreeNode } from '../types'
 
 // @lc code=start
 /**

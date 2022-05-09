@@ -4,7 +4,7 @@
  * [102] Binary Tree Level Order Traversal
  */
 
-import { createTree, TreeNode } from './types'
+import { createTree, TreeNode } from '../types'
 
 // @lc code=start
 /**
