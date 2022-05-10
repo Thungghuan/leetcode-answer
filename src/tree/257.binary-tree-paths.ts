@@ -4,7 +4,17 @@
  * [257] Binary Tree Paths
  */
 
-import { createTree, TreeNode } from './types'
+/** 
+ * 二叉树所有路径
+ * 
+ * 回溯：
+ * 记录当前节点，递归左节点，再递归右节点
+ * 到底层开始回溯
+ * 
+ * 
+ */
+
+import { createTree, TreeNode } from '../types'
 
 // @lc code=start
 /**

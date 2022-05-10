@@ -4,7 +4,20 @@
  * [104] Maximum Depth of Binary Tree
  */
 
-import { createTree, TreeNode } from './types'
+/** 
+ * 二叉树最大深度
+ * 
+ * 1. 层序遍历
+ * 
+ * depth从0开始，遍历一次加一
+ * 结果为层数
+ * 
+ * 2. 递归
+ * 递归到最后一层时，
+ * 从最后一层往上回溯，每层+1
+ */
+
+import { createTree, TreeNode } from '../types'
 
 // @lc code=start
 /**

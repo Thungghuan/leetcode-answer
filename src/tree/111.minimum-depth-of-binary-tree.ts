@@ -4,7 +4,24 @@
  * [111] Minimum Depth of Binary Tree
  */
 
-import { createTree, TreeNode } from './types'
+/** 
+ * 二叉树最小深度
+ * 
+ * 1. 层序遍历
+ * 
+ * 按层序遍历每层元素，并逐层计算depth
+ * 当遍历到一个没有子节点的元素时
+ * 即到达最小深度
+ * 
+ * 2. 递归
+ * 递归到无左子节点或右节点时
+ * 递归另一边子节点并 + 1
+ * 
+ * 否则返回左右子树层数最小值并+1
+ * 
+ */
+
+import { createTree, TreeNode } from '../types'
 
 // @lc code=start
 /**
