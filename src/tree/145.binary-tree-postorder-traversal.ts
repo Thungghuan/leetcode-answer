@@ -4,6 +4,21 @@
  * [145] Binary Tree Postorder Traversal
  */
 
+/**
+ * 二叉树后序遍历（左右中）
+ *
+ * 1. 递归
+ * 先递归左节点，然后递归右节点，最后访问根节点
+ *
+ * 2. 存取遍历栈
+ * 从根节点开始
+ * 栈弹出标记为根节点，存入结果
+ * 先压入左节点，再压入右节点
+ * 此时为中右左顺序
+ * 反转数组
+ *
+ */
+
 import { createTree, TreeNode } from '../types'
 
 // @lc code=start

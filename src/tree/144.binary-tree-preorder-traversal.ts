@@ -4,6 +4,19 @@
  * [144] Binary Tree Preorder Traversal
  */
 
+/**
+ * 二叉树前序遍历（中左右）
+ *
+ * 1. 递归
+ * 先访问根节点，递归左节点，然后递归右节点
+ *
+ * 2. 存取遍历栈
+ * 从根节点开始
+ * 栈弹出标记为根节点，存入结果
+ * 先压入右节点，再压入左节点
+ *
+ */
+
 import { createTree, TreeNode } from '../types'
 
 // @lc code=start

@@ -4,6 +4,19 @@
  * [94] Binary Tree Inorder Traversal
  */
 
+/** 
+ * 二叉树中序遍历（左中右）
+ * 
+ * 1. 递归
+ * 先递归左节点，访问根节点，然后递归右节点
+ * 
+ * 2. 存取遍历栈
+ * 从根节点开始，若有左节点，压入栈。
+ * 直到无左节点，弹出栈记录结果
+ * 压右节点入栈
+ * 
+ */
+
 import { createTree, TreeNode } from '../types'
 
 // @lc code=start

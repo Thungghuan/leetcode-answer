@@ -4,7 +4,19 @@
  * [101] Symmetric Tree
  */
 
-import { createTree, TreeNode } from './types'
+/**
+ * 对称二叉树
+ * 
+ * 左节点压入左、右节点
+ * 右节点压入右、左节点
+ * 
+ * 弹出节点并对比
+ * 
+ * 继续压栈
+ * 
+ */
+
+import { createTree, TreeNode } from '../types'
 
 // @lc code=start
 /**
