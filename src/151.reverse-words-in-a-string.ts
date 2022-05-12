@@ -69,7 +69,7 @@ if (import.meta.vitest) {
 
   it('151.reverse-words-in-a-string', () => {
     expect(reverseWords('a good   example')).toMatchInlineSnapshot(
-      '"example good a a"'
+      '"example good a"'
     )
 
     expect(reverseWords('  hello world  ')).toMatchInlineSnapshot(
