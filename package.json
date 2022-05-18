@@ -17,6 +17,6 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "vitest": "^0.12.3"
+    "vitest": "^0.12.6"
   }
 }
