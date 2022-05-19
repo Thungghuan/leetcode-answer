@@ -8,25 +8,14 @@
 function searchMatrix(matrix: number[][], target: number): boolean {
   if (matrix.length === 0 || matrix[0].length === 0) return false
 
-  const m = matrix.length
-  const n = matrix[0].length
-  const len = m * n
+  let row = matrix.length - 1
+  let col = 0
 
-  let left = 0
-  let right = len - 1
-
-  while (left <= right) {
-    const mid = Math.floor((left + right) / 2)
-    const row = Math.floor(mid / n)
-    const col = mid % n
-
+  while(row >= 0 && col < matrix[0].length) {
     if (matrix[row][col] === target) return true
 
-    if (matrix[row][col] > target) {
-      right = mid - 1
-    } else {
-      left = mid + 1
-    }
+    if (matrix[row][col] > target) row--
+    else col++
   }
 
   return false
@@ -57,5 +46,15 @@ if (import.meta.vitest) {
         13
       )
     ).toMatchInlineSnapshot('false')
+
+    expect(
+      searchMatrix(
+        [
+          [1, 4],
+          [2, 5]
+        ],
+        2
+      )
+    ).toMatchInlineSnapshot('true')
   })
 }
